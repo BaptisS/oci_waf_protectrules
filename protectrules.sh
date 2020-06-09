@@ -18,6 +18,8 @@ sed -zr 's/,([^,]*$)/\1/' waf-protectrules-temp.json > waf-protectrules.json
 rm -f waf-protectrules-temp.json
 #oci network security-list update --security-list-id $wafseclist --ingress-security-rules file://seclist-waf-TCP80443.json --force
 
+oci waas waf-config update --waas-policy-id $POLOCID --protection-rules file://waf-protectrules.json
+
 #rm -f wafrule-TCP80.sh
 #rm -f wafrule-TCP443.sh
 
